@@ -62,4 +62,15 @@ from Products
 group by CategoryID
 order by avg (UnitPrice) desc;
 
+Задача: У какого количества клиентов в должности есть слово Sales, а регион не заполнен?
 
+Решение: select *
+from Customers
+where ContactTitle like '%Sales%' and Region is null; 
+
+Задача : Выведите максимальную и минимальную стоимость товаров в каждой категории (CategoryID). В какой категории самая большая разница между самой высокой ценой товара и самой низкой ценой?
+
+Решение: select CategoryID , max (UnitPrice) - min (UnitPrice) 
+from Products
+group by CategoryID 
+order by max (UnitPrice) - min (UnitPrice)  desc;
