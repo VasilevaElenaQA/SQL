@@ -91,10 +91,17 @@ LEFT (OUTER) JOIN: Возвращает все записи из левой та
 RIGHT (OUTER) JOIN: Возвращает все записи из правой таблицы и совпадающие записи из левой таблицы
 FULL (OUTER) JOIN: Возвращает все записи при наличии совпадения в левой или правой таблице
 
-![image](https://user-images.githubusercontent.com/104627450/181201353-cce5a23f-4399-4fa0-b46a-ac7dea8d6e67.png) ![image](https://user-images.githubusercontent.com/104627450/181201445-35b7ac1d-5179-4896-8551-584119ef10bc.png)
+![image](https://user-images.githubusercontent.com/104627450/181201353-cce5a23f-4399-4fa0-b46a-ac7dea8d6e67.png) 
 ![image](https://user-images.githubusercontent.com/104627450/181201477-23909597-db6f-471b-b710-f717e973c157.png)
 ![image](https://user-images.githubusercontent.com/104627450/181201512-74a008e6-47b1-4986-a68d-d60ba4e6883c.png)
 
 
 INNER JOIN
 Ключевое слово INNER JOIN выбирает записи, имеющие совпадающие значения в обеих таблицах
+
+
+Задача: Посчитайте суммарную выручку (стоимость) по заказам, которые были совершены в 1997 году. Ответ округлите до целого числа.
+
+Решение:select sum (Quantity* UnitPrice*(1-Discount))
+from Orders as t1 inner join [Order Details] as t2 on t1.OrderID = t2.OrderID
+where OrderDate between '1997-01-01 00:00:00.000' and '1997-12-31 00:00:00.000';
