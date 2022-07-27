@@ -74,3 +74,22 @@ where ContactTitle like '%Sales%' and Region is null;
 from Products
 group by CategoryID 
 order by max (UnitPrice) - min (UnitPrice)  desc;
+
+Задача: Найдите заказ (OrderID) с самым большим количеством штук (Quantity) товаров в чеке. Если в заказе несколько разных товаров, то штуки нужно сложить. Какой OrderID у заказа?
+Решение : select OrderID, sum (Quantity) 
+from [Order Details]
+group by OrderID 
+order by sum (Quantity) desc
+
+JOIN
+Предложение JOIN используется для объединения строк из двух или более таблиц на основе связанного столбца между ними.
+
+Вот различные типы соединений в SQL:
+
+(INNER) JOIN: Возвращает записи, имеющие совпадающие значения в обеих таблицах
+LEFT (OUTER) JOIN: Возвращает все записи из левой таблицы и совпадающие записи из правой таблицы
+RIGHT (OUTER) JOIN: Возвращает все записи из правой таблицы и совпадающие записи из левой таблицы
+FULL (OUTER) JOIN: Возвращает все записи при наличии совпадения в левой или правой таблице
+
+![image](https://user-images.githubusercontent.com/104627450/181201353-cce5a23f-4399-4fa0-b46a-ac7dea8d6e67.png)
+
