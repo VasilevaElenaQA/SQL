@@ -113,8 +113,15 @@ LEFT (OUTER) JOIN: Возвращает все записи из левой та
 
 В каких городах проживают клиенты, которые не совершили ни одного заказа? Используйте LEFT JOIN для решения задачи.
 
-Решение: select City, count (distinct t2.OrderID)
-from Customers as t1 left join Orders as t2 on t1.CustomerID = t2.CustomerID
-where OrderID is null 
-group by City 
-order by count (distinct t2.OrderID)
+Решение: SELECT ContactName, orderID, City
+FROM Customers as t1 left join Orders as t2 on t1.CustomerID = t2.CustomerID
+where t2.OrderID IS NULL
+
+RIGHT (OUTER) JOIN: Возвращает все записи из правой таблицы и совпадающие записи из левой таблицы
+![image](https://user-images.githubusercontent.com/104627450/181268582-644a45de-9ed4-4bd2-8fdc-d44f4b8a771d.png)
+
+FULL (OUTER) JOIN: Возвращает все записи при наличии совпадения в левой или правой таблице
+
+![image](https://user-images.githubusercontent.com/104627450/181268674-a6e4359d-34d9-42f7-a5a3-2e7936a2500f.png)
+
+
