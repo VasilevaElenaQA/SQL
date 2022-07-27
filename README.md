@@ -91,5 +91,8 @@ LEFT (OUTER) JOIN: Возвращает все записи из левой та
 RIGHT (OUTER) JOIN: Возвращает все записи из правой таблицы и совпадающие записи из левой таблицы
 FULL (OUTER) JOIN: Возвращает все записи при наличии совпадения в левой или правой таблице
 
-![image](https://user-images.githubusercontent.com/104627450/181201353-cce5a23f-4399-4fa0-b46a-ac7dea8d6e67.png)
+![image](https://user-images.githubusercontent.com/104627450/181201353-cce5a23f-4399-4fa0-b46a-ac7dea8d6e67.png) ![image](https://user-images.githubusercontent.com/104627450/181201445-35b7ac1d-5179-4896-8551-584119ef10bc.png)
+![image](https://user-images.githubusercontent.com/104627450/181201477-23909597-db6f-471b-b710-f717e973c157.png)
+![image](https://user-images.githubusercontent.com/104627450/181201512-74a008e6-47b1-4986-a68d-d60ba4e6883c.png)
+
 
