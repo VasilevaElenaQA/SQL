@@ -178,3 +178,42 @@ where City != ShipCity;
 Решение: select count (OrderID) 
 from Orders
 where ShippedDate is null; 
+
+Задача: select ShipCity, ShipCountry, OrderDate 
+from Orders
+where ShipCountry ='UK' and OrderDate between '1998-02-01 00:00:00.000' and '1998-02-28 00:00:00.000'
+
+Решение: select ShipCity, ShipCountry, OrderDate 
+from Orders
+where ShipCountry ='UK' and OrderDate between '1998-02-01 00:00:00.000' and '1998-02-28 00:00:00.000'
+
+Задача: Найдите заказ (OrderID), стоимость которого составила 2900.
+Решение: select OrderID, sum (Quantity * UnitPrice * (1-Discount)) 
+from [Order Details]
+group by OrderID
+having sum (Quantity * UnitPrice * (1-Discount)) = 2900
+
+--Каждый столбец в таблицах имеет свой тип данных. Тип данных определяет какие значения будут храниться в столбце и кол-во памяти необходимое для хранения значений.
+
+Типы данных условно можно разделить на 4 группы:
+
+- Числовые типы данных для хранения чисел: bigint, numeric, bit, smallint, decimal, smallmoney, int, tinyint, money, float;
+
+- Дата и время: date, datetimeoffset, datetime2, smalldatetime, datetime, time;
+
+- Символьные типы данных для хранения набора символов: char, varchar, text, nchar, nvarchar, ntext;
+
+- Прочие типы данных: binary, varbinary, image, курсор, rowversion, hierarchyid, uniqueidentifier, sql_variant, xml, типы пространственной геометрии, типы пространственной географии, table
+
+ROUND - Округляет число до заданного количества знаков после запятой
+
+Задача: Посчитайте общую выручку по всем заказам, которые были оформлены в 1996 году. C помощью функции Round() округлите ответ до целого числа.
+Решение: select round (sum (t2.Quantity * t2.UnitPrice * (1-t2.Discount)), 0)
+from Orders as t1 inner join [Order Details] as t2 on t1.OrderID=t2.OrderID
+where OrderDate between '1996-01-01 00:00:00.000' and '1996-12-31 00:00:00.000' ;
+
+Задача: C помощью функции LEN() найдите самое длинное полное имя (имя и фамилия) клиента. Из какого количества символов, включая пробел, состоит полное имя.
+Решение: select ContactName, len (ContactName)
+from Customers
+order by ContactName desc;
+
