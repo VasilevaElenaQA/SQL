@@ -1,6 +1,6 @@
 # SQL
 
-https://stepik.org/cert/1589909 
+
 
 SELECT * FROM название таблицы ;
 
