@@ -156,3 +156,25 @@ group by CategoryName
 order by sum (t1.Quantity * t1.UnitPrice * (1-t1.Discount))  desc
 
 Задача: Клиент Simon Crowther утверждает, что оформил заказ 29 апреля 1998 года, но заказ пришел неполный - часть товаров отсутствует. Найдите всю информацию по сотруднику, который оформил этот заказ, чтобы связаться с ним. Как зовут этого сотрудника?
+
+Решение: 
+select FirstName, LastName
+from Customers as t1 inner join Orders as t2 on t1.CustomerID = t2.CustomerID
+                     inner join Employees as t3 on t2.EmployeeID =t3.EmployeeID
+where ContactName = 'Simon Crowther' and OrderDate = '1998-04-29 00:00:00.000';
+
+Задача: Как зовут клиента с наибольшим кол-вом заказов?
+Решение: select ContactName, count (*) as 'Количество заказов'
+from Customers as t1 inner join Orders as t2 on t1.CustomerID= t2.CustomerID
+group by ContactName 
+order by count (*) desc;
+
+Задача: Найдите клиента, который проживает в одном городе (City), но оформляет доставку в другой город (Shipcity).
+Решение: select ContactName, City, ShipCity
+from Customers as t1 inner join Orders as t2 on t1.CustomerID=t2.CustomerID
+where City != ShipCity; 
+
+Задача: Посчитайте количество заказов, которые не были доставлены (столбец ShippedDate не заполнен)?
+Решение: select count (OrderID) 
+from Orders
+where ShippedDate is null; 
