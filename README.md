@@ -131,3 +131,28 @@ UNION
 Каждый оператор SELECT в UNION должен иметь одинаковое количество столбцов
 Столбцы также должны иметь схожие типы данных
 Столбцы в каждом заявлении SELECT также должны располагаться в том же порядке
+
+
+Задача : Посчитайте количество заказов, в которых присутствует товар Chocolade.
+Решение: select count (*)
+from Products as t1 inner join [Order Details] as t2 on t1.ProductID=t2.ProductID
+where ProductName= 'Chocolade'; 
+
+Задача: Посчитайте общую выручку, которую принесли товары категории Confections. Ответ округлите до целого числа.
+
+Решение: 
+select sum (t1.Quantity * t1.UnitPrice * (1-t1.Discount)) as 'Выручка'
+from [Order Details] as t1 inner join Products as t2 on t1.ProductID = t2.ProductID
+						   inner join Categories as t3 on  t2.CategoryID = t3.CategoryID
+where CategoryName= 'Confections';
+
+Задача: Посчитайте выручку по каждой категории. Какая категория принесла самую высокую выручку?
+
+Решение: 
+select CategoryName, sum (t1.Quantity * t1.UnitPrice * (1-t1.Discount)) as 'Выручка'
+from [Order Details] as t1 inner join Products as t2 on t1.ProductID = t2.ProductID
+						   inner join Categories as t3 on  t2.CategoryID = t3.CategoryID
+group by CategoryName 
+order by sum (t1.Quantity * t1.UnitPrice * (1-t1.Discount))  desc
+
+Задача: Клиент Simon Crowther утверждает, что оформил заказ 29 апреля 1998 года, но заказ пришел неполный - часть товаров отсутствует. Найдите всю информацию по сотруднику, который оформил этот заказ, чтобы связаться с ним. Как зовут этого сотрудника?
