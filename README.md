@@ -152,11 +152,13 @@ where t2.OrderID is null
 **RIGHT (OUTER) JOIN**: <br>
 Возвращает все записи из правой таблицы и совпадающие записи из левой таблицы 
 
+![image](https://user-images.githubusercontent.com/104627450/184158187-f2beafc7-6d3b-4e87-8aa0-a2bb44a772e0.png)
 
 
 **FULL (OUTER) JOIN**:<br>
  Возвращает все записи при наличии совпадения в левой или правой таблице
 
+![image](https://user-images.githubusercontent.com/104627450/184158229-a1fdba49-d6f2-4076-a6ad-4cf989794d0f.png)
 
 
 
